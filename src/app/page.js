@@ -125,6 +125,18 @@ export default function Home() {
             {play ? 'Start Recording' : 'Stop Recording'}
           </button>
         </div>
+
+
+        
+        <div>
+          {videoUrl && (
+    <video
+      src={videoUrl}
+      controls
+      className="mt-6 w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl aspect-video rounded-xl shadow-lg border border-gray-300"
+    />
+  )}
+        </div>
       </div>
     </div>
   );
