@@ -100,24 +100,32 @@ export default function Home() {
     if (saved) setVideoUrl(saved);
   };
   return (
-    <div className="flex items-center justify-center h-screen ">
-      <video ref={videoRef} autoPlay className="hidden" />
+   <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-indigo-900 flex items-center justify-center px-4 py-8">
+      <div className="max-w-4xl w-full flex flex-col md:flex-row items-center justify-center gap-6">
         
-      <button onClick={startrecording}
-  className="px-6 py-2 sm:px-8 sm:py-3 md:px-10 md:py-4 
-             bg-gradient-to-r from-indigo-500 to-purple-500 
-             text-white text-sm sm:text-base md:text-lg 
-             font-semibold rounded-full 
-             shadow-md hover:shadow-lg 
-             transition duration-300 hover:scale-105 
-             m-2  sm:m-4"
->
-    {play ? 'Start Recording' : 'Stop Recording'}
-</button>
- 
-      <canvas ref={canvasRef} width="640" height="480" className=" h-auto" />
+      
+        <video ref={videoRef} autoPlay className="hidden" />
 
+        
+        <div className="w-full max-w-md aspect-video bg-black rounded-lg shadow-lg overflow-hidden border-4 border-purple-600">
+          <canvas ref={canvasRef} width="640" height="480" className="w-full h-full object-cover" />
+        </div>
 
+      
+        <div className="text-center">
+          <button
+            onClick={startrecording}
+            className="px-6 py-2 sm:px-8 sm:py-3 md:px-10 md:py-4 
+              bg-gradient-to-r from-indigo-500 to-purple-600 
+              text-white text-sm sm:text-base md:text-lg 
+              font-bold rounded-full shadow-lg 
+              hover:shadow-2xl transition transform 
+              duration-300 hover:scale-105 hover:brightness-110"
+          >
+            {play ? 'Start Recording' : 'Stop Recording'}
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
